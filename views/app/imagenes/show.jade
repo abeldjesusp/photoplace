@@ -1,0 +1,7 @@
+extends ../../layout.jade
+block contenido
+	div.img-container
+		h1= imagen.title
+		img(src="/public/img/#{imagen._id}.#{imagen.extension}")
+		if (typeof imagen.creator != "undefined")
+			p Por #{imagen.creator.email}

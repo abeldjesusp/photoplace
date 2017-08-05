@@ -1,0 +1,18 @@
+extends ../layout.jade
+block contenido
+  div#imagenes
+    for imagen in imagenes
+      div.img-container
+        a(href="/app/imagenes/#{imagen.id}")
+          h2= imagen.title
+        img.main-img(src="/public/img/#{imagen._id}.#{imagen.extension}")
+        if (typeof imagen.creator != "undefined")
+          p Por #{imagen.creator.email}
+
+
+  script#image-template(tyoe="text/x-handlebars-template")
+    div.img-container
+      a(href="/app/imagenes/{{id}}")
+        h2 {{title}}
+      img.main-img(src="/public/img/{{id}}.{{extension}}")
+  script(src="/public/js/client.js")
